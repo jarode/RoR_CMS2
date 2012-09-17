@@ -1,4 +1,8 @@
 Rails3BootstrapDeviseCancan::Application.routes.draw do
+  resources :auctions do
+	resources :bits
+  end
+  
   authenticated :user do
     root :to => 'home#index'
   end

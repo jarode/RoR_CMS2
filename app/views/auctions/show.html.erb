@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @auction.name %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @auction.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @auction.content %>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%= @auction.tags.map { |t| t.name }.join(", ") %>
+</p>
+
+
+<h2>Bits</h2>
+<% @auction.bits.each do |bit| %>
+  <p>
+    <b>Bitter:</b>
+    <%= bit.bitter %>
+  </p>
+ 
+  <p>
+    <b>Description:</b>
+    <%= bit.body %>
+  </p>
+  <p>
+  <%= link_to 'Destroy Bit', [bit.auction, bit],
+               :confirm => 'Are you sure?',
+               :method => :delete %>
+  </p>
+<% end %>
+ 
+<h2>Add a Bit:</h2>
+<% if user_signed_in? %>
+	<%= form_for([@auction, @auction.bits.build]) do |f| %>
+	  <div class="field">
+		<%= f.label :bitter %><br />
+		<%= f.text_field :bitter %>
+	  </div>
+	  <div class="field">
+		<%= f.label :body %><br />
+		<%= f.text_area :body %>
+	  </div>
+	  <div class="actions">
+		<%= f.submit %>
+	  </div>
+	<% end %>
+<% else %>
+<%= link_to 'Login', new_user_session_path %>  
+<% end %>
+<br />
+<% if user_signed_in? %>
+	<% if current_user.has_role? :admin %>
+	<%= link_to 'Edit', edit_auction_path(@auction) %> | 
+	
+	<% end %>
+<% end %>

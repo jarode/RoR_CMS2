@@ -1,0 +1,32 @@
+<h1>Listing auctions</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Title</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @auctions.each do |auction| %>
+  <tr>
+    <td><%= auction.name %></td>
+    <td><%= auction.title %></td>
+    <td><%= auction.content %></td>
+    <td><%= link_to 'Show', auction %></td>
+	<% if user_signed_in? %>
+		<% if current_user.has_role? :admin %>
+		<td><%= link_to 'Edit', edit_auction_path(auction) %></td>
+		<td><%= link_to 'Destroy', auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<% end %>
+	<% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if user_signed_in? %>
+<%= link_to 'New Auction', new_auction_path %>
+<% end %>

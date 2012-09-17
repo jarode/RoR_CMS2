@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120418171112) do
+ActiveRecord::Schema.define(:version => 20120917150454) do
+
+  create_table "auctions", :force => true do |t|
+    t.string   "name"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "bits", :force => true do |t|
+    t.string   "bitter"
+    t.text     "body"
+    t.integer  "auction_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "bits", ["auction_id"], :name => "index_bits_on_auction_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -23,6 +41,15 @@ ActiveRecord::Schema.define(:version => 20120418171112) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.integer  "auction_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "tags", ["auction_id"], :name => "index_tags_on_auction_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

@@ -1,0 +1,33 @@
+<% @auction.tags.build %>
+<%= form_for(@auction) do |auction_form| %>
+  <% if @auction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@auction.errors.count, "error") %> prohibited this auction from being saved:</h2>
+
+      <ul>
+      <% @auction.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= auction_form.label :name %><br />
+    <%= auction_form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= auction_form.label :title %><br />
+    <%= auction_form.text_field :title %>
+  </div>
+  <div class="field">
+    <%= auction_form.label :content %><br />
+    <%= auction_form.text_area :content %>
+  </div>
+  <h2>Tags</h2>
+  <%= render :partial => 'tags/form',
+             :locals => {:form => auction_form} %>
+  <div class="actions">
+    <%= auction_form.submit %>
+  </div>
+<% end %>
