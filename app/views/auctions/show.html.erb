@@ -32,11 +32,16 @@
     <b>Description:</b>
     <%= bit.body %>
   </p>
-  <p>
-  <%= link_to 'Destroy Bit', [bit.auction, bit],
-               :confirm => 'Are you sure?',
-               :method => :delete %>
-  </p>
+  <% if user_signed_in? %>
+	  <% if current_user.has_role? :admin %>
+	  <p>
+		<%= link_to 'Destroy Bit', [bit.auction, bit],
+				   :confirm => 'Are you sure?',
+				   :method => :delete %>
+	  </p>
+	  <% end %>
+  <% end %>
+  
 <% end %>
  
 <h2>Add a Bit:</h2>

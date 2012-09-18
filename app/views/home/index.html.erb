@@ -9,3 +9,8 @@
   <p>User: <%=link_to user.name, user %></p>
 <% end %>
 
+<h3>Tags</h3>
+<% @tags.each do |tag| %>
+  <%=tag.name %>
+<% end %>
+
