@@ -2,9 +2,11 @@
 
 <table>
   <tr>
+    <th>User Id</th>
     <th>Name</th>
     <th>Title</th>
     <th>Content</th>
+	<th></th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,6 +14,7 @@
 
 <% @auctions.each do |auction| %>
   <tr>
+    <td><%= auction.user_id %></td>
     <td><%= auction.name %></td>
     <td><%= auction.title %></td>
     <td><%= auction.content %></td>

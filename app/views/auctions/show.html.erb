@@ -48,8 +48,9 @@
 <% if user_signed_in? %>
 	<%= form_for([@auction, @auction.bits.build]) do |f| %>
 	  <div class="field">
-		<%= f.label :bitter %><br />
-		<%= f.text_field :bitter %>
+		
+		
+		<%= f.hidden_field(:bitter,  {:value => current_user.name} ) %>
 	  </div>
 	  <div class="field">
 		<%= f.label :body %><br />

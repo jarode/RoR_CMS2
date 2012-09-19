@@ -13,6 +13,9 @@
   <% end %>
 
   <div class="field">
+    <%= auction_form.label current_user.id %><br />
+	<%= auction_form.hidden_field(:user_id,  {:value => current_user.id} ) %>
+	
     <%= auction_form.label :name %><br />
     <%= auction_form.text_field :name %>
   </div>
