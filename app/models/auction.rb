@@ -1,6 +1,9 @@
 class Auction < ActiveRecord::Base
   attr_accessible :content, :name, :title, :tags_attributes
  
+ 
+  belongs_to :user
+  
   validates :name,  :presence => true
   validates :title, :presence => true,
                     :length => { :minimum => 5 }
