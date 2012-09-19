@@ -1,7 +1,9 @@
 class AddReftoBits < ActiveRecord::Migration
-  def up
-  end
-
-  def down
+  def change
+	  change_table :bits do |t|
+	    t.references :user
+      end
+  
+    
   end
 end
