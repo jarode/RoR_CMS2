@@ -11,27 +11,60 @@
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
-  <body>
-    <header class="navbar navbar-fixed-top">
-      <nav class="navbar-inner">
+    <body>
+        <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px; "><div><iframe id="fb_xdm_frame_http" name="fb_xdm_frame_http" src="./Download Free Apps & Games for Kids - Famigo_files/xd_arbiter.htm"></iframe><iframe id="fb_xdm_frame_https" name="fb_xdm_frame_https" src="./Download Free Apps & Games for Kids - Famigo_files/xd_arbiter(1).htm"></iframe></div><div></div></div></div>
+		<header class="navbar navbar-fixed-top famigo-navbar">
+			<nav class="navbar-inner">
+        
+                <div class="container">
+					<%= render 'layouts/navigation' %>
+                    
+                </div>
+            </nav>
+        </header>
+
         <div class="container">
-          <%= render 'layouts/navigation' %>
-        </div>
-      </nav>
-    </header>
-    <div id="main" role="main">
-      <div class="container">
-        <div class="content">
-           <div class="row">
-            <div class="span12">
-              <%= render 'layouts/messages' %>
+            
+
+            
+
+            
+		<%= render 'layouts/messages' %>
               <%= yield %>
+         
+           
+			<footer>
+            <div class="footer">
+                <p>2012 Jarode, Inc.</p>
+                <p>
+                    <a href="http://www.famigo.com/sandbox-support/">Support</a>
+                    <a href="http://www.famigo.com/developers/">Developers</a>
+                    <a href="http://www.famigo.com/contact/">Contact</a>
+                    <a href="http://www.famigo.com/privacy/">Privacy Policy</a>
+                    <a href="http://www.famigo.com/sitemap/">Sitemap</a>
+                </p>
             </div>
-          </div>
-          <footer>
-          </footer>
+			</footer>
         </div>
-      </div> <!--! end of .container -->
-    </div> <!--! end of #main -->
-  </body>
+
+        
+           <!-- 
+            <script src="./Download Free Apps & Games for Kids - Famigo_files/all.min.js"></script><script async="" id="facebook-jssdk" src="./Download Free Apps & Games for Kids - Famigo_files/all.js"></script>
+          -->
+
+        
+    
+        <script>
+            jQuery(function ($) {
+                $('#login-popover-container').popover('show');
+                $('html').on('click', function () {
+                    $('#login-popover-container').popover('hide');
+                });
+            });
+        </script>
+    
+
+    
+
+</body>
 </html>

@@ -1,3 +1,740 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Site-wide top navigation bar */
+.famigo-navbar {
+    background-image: url('img/famigo-colors.png');
+    padding-top: 4px;
+}
+.famigo-navbar .navbar-inner {
+    background: #eee;
+    filter: none;
+    padding: 5px 0;
+}
+.famigo-navbar .brand {
+    padding-bottom: 0;
+    padding-top: 0;
+}
+.famigo-navbar #famigo-logo {
+    display: block;
+}
+.famigo-navbar #user-button {
+    margin-left: 18px;
+}
+.famigo-navbar #user-button .user-profile-picture {
+    display: block;
+    height: 26px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 26px;
+}
+.famigo-navbar #user-button .icon-user {
+    margin-right: 4px;
+}
+.famigo-navbar #user-button .dropdown-menu {
+    left: auto;
+    right: 0;
+}
+.famigo-navbar #user-button .dropdown-menu:before {
+    left: auto;
+    right: 9px;
+}
+.famigo-navbar #user-button .dropdown-menu:after {
+    left: auto;
+    right: 10px;
+}
+#login-popover-container {
+    position: relative;
+}
+#login-popover-container .btn {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#login-popover-container .popover {
+    left: auto !important;
+    right: 0 !important;
+    z-index: 1035;
+}
+#login-popover-container .arrow {
+    left: auto !important;
+    right: 24px !important;
+}
+.famigo-navbar .nav > li > a {
+    color: #333;
+    text-shadow: none;
+}
+.famigo-navbar .nav > li > a:hover {
+    color: #000;
+}
+.famigo-navbar .nav .dropdown-toggle .caret,
+.famigo-navbar .nav .open.dropdown .caret {
+    border-top-color: #000;
+}
+.famigo-navbar .dropdown.open .dropdown-toggle {
+    color: inherit;
+}
+.famigo-navbar .divider-vertical {
+    background-color: #ddd;
+    border-right-color: #ddd;
+}
+.famigo-navbar .navbar-search .search-query {
+    border-color: #ccc;
+    color: inherit;
+}
+.famigo-navbar .search-query::-webkit-input-placeholder {
+    color: #aaa;
+}
+.famigo-navbar .search-query:-moz-placeholder {
+    color: #aaa;
+}
+
+body {
+    padding-bottom: 18px;
+    padding-top: 72px;
+}
+.reviews.page-header {
+    border-top: 1px solid #EEEEEE;
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding: 4px 0;
+}
+.footer {
+    border-top: thin solid #eee;
+    margin-top: 18px;
+    padding-top: 18px;
+}
+.application.promotion {
+    background-color: #fcf8e3;
+    border-color: #fbeed5;
+}
+.application h3, .application p {
+    font-weight: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.application.well {
+    padding: 8px 19px;
+}
+.application.well h3 {
+    line-height: 22px
+ }
+.application.well .developer {
+    margin: 0px;
+    height: 18px;
+}
+.application.well .btn.application-tile-link {
+    margin: 0 0 0 84px;
+}
+.application-icon {
+    display: block;
+    height: 64px;
+    margin-right: 19px;
+    width: 64px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+}
+.application-platform-icon {
+    display: block;
+    height: 64px;
+    width: 64px;
+}
+.application .application-platform-icon {
+    margin: -5px -10px 0 0;
+    height: 38px;
+    width: 38px;
+}
+.application .rating {
+    margin-bottom: 10px;
+    height: 15px;
+}
+.dropdown-menu a {
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+.dropdown-menu .application-platform-icon {
+    height: 36px;
+    margin-left: -12px;
+    width: 36px;
+}
+.application-name,
+.application-platform {
+    display: block;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.alert .application-platform-icon {
+    margin: -8px -30px 0 0;
+}
+.application span {
+    margin-top: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-transform: none;
+}
+.application-header-icon {
+    display: block;
+    height: 64px;
+    margin: -17px 18px 0 0;
+    width: 64px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+}
+.application-description {
+    white-space: pre-wrap;
+}
+#jumbotron {
+    border-bottom: thin solid #eee;
+    margin-bottom: 18px;
+    text-align: center;
+}
+.download-dropdown {
+    margin-bottom: 18px;
+    padding-right: 83px;
+}
+.download-dropdown > .application-download-link {
+    float: none;
+    width: 100%;
+}
+.download-dropdown .dropdown-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 36px;
+}
+.download-dropdown .dropdown-menu {
+    width: 100%;
+}
+.approved {
+    display: block;
+    margin: 18px auto;
+}
+.approved-label {
+    margin-left: 4px;
+}
+.application-rating {
+    color: inherit;
+    font-size: 36px;;
+    line-height: 36px;
+    margin: 18px 0;
+    text-align: center;
+}
+.carousel {
+    background: #000;
+    height: 450px;
+    margin-bottom: 18px;
+}
+.carousel-loading {
+    color: #fff;
+    left: 0;
+    margin-top: -18px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+}
+.carousel .item img {
+    display: block;
+    height: 100%;
+    margin: 0 auto;
+    max-height: 450px;
+}
+#fb-login-iframe {
+    margin-top: 18px;
+}
+.features {
+    list-style: none;
+    margin: 0;
+}
+.features li {
+}
+.features a {
+    color: inherit;
+}
+.features img {
+    height: 18px;
+    width: 18px;
+    vertical-align: bottom;
+}
+#filter-bar span {
+    display: none;
+}
+.as-seen-on {
+}
+.as-seen-on h2 {
+    margin-bottom: 18px;
+    text-align: center;
+}
+.as-seen-on img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+#top-apps-accordion {
+    margin: 18px 0;
+}
+#funnosaurus-modal img {
+    display: block;
+    height: 180px;
+    margin: 0 auto;
+}
+.about-picture.pull-right {
+    margin: 0 0 18px 18px;
+}
+.about-picture.pull-left {
+    margin: 0 18px 18px 0;
+}
+.infographic {
+    display: block;
+    margin: 0 auto 18px auto;
+}
+.small-application-icon {
+    display: block;
+    height: 18px;
+    margin: 0 auto;
+    width: 18px;
+}
+.user-rating {
+    color: inherit;
+}
+.user-rating:hover {
+    color: inherit;
+    text-decoration: none;
+}
+.spinner {
+    display: block;
+    height: 18px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 18px;
+}
+.sandbox-included {
+    background-color: #E5FFD6;
+    border-color: #00CD4A;
+}
+.faq {
+    font-weight: bold;
+}
+dd {
+    margin-bottom: 10px;
+}
+
+/* Android sandbox hero unit */
+.hero-unit {
+}
+.hero-unit iframe {
+    max-width: 100%;
+}
+.hero-unit .btn {
+    margin-bottom: 8px;
+    margin-top: 30px;
+}
+#approved-container {
+    position: relative;
+}
+#approved-badge {
+}
+#approved-popover {
+    left: auto;
+    right: -200px;
+    top: -30px;
+    color: black;
+}
+
+.approved-container {
+    position: relative;
+}
+
+.approved-popover p{
+    white-space: normal;
+    overflow: auto;
+    text-overflow: none;
+    left: auto;
+    right: auto;
+
+}
+
+/*
+    Media queries
+*/
+#fb-root {
+    display: none; /* Facebook messes with media queries, so we hide it. */
+}
+@media (min-width: 768px) {
+    #filter-bar span {
+        display: inline;
+    }
+    .application-description {
+        max-height: 135px;
+        overflow-y: auto;
+    }
+
+    #approved-popover{
+        right: -275px;
+        top: -35px;
+    }
+
+    .application .approved-popover{
+        top: 20px;
+    }
+
+    .application .popover-inner{
+        width: 180px;
+    }
+
+    .form-horizontal .control-group {
+        margin-left: -45px;
+    }
+    .form-horizontal .controls input{
+        width: 165px;
+    }
+
+    .applist-icons {
+        margin-left: 0px;
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    #approved-popover.show,
+    .approved-popover.show {
+        display: none !important;
+    }
+    .social-widgets {
+        display: none;
+    }
+    #app-rec, #app-wishlist, #sandbox-usage, #sandbox-manage {
+        display: none;
+    }
+    #family-dashboard-page-header small {
+        display: none;
+    }
+    #family-dashboard-page-header {
+        border-bottom: 0;
+    }
+    #dashboard-list {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 979px) {
+    .carousel {
+        height: 270px;
+    }
+    .carousel .item img {
+        max-height: 270px;
+    }
+    .famigo-navbar .nav > li > a:hover,
+    .famigo-navbar .dropdown-menu:not([data-no-collapse="true"]) a:hover {
+        background-color: #ddd;
+    }
+    #login-popover-container .popover {
+        right: -44px !important;
+    }
+    #login-popover-container .arrow {
+        right: 68px !important;
+    }
+    .hero-unit {
+        padding: 10px 10px 40px 10px;
+    }
+    .accordion-inner {
+        padding: 9px 60px;
+    }
+}
+
+@media (min-width: 980px) {
+    #approved-popover{
+        right: -240px;
+    }
+    .application .popover-inner{
+        width: 250px;
+    }
+    .form-horizontal .control-group {
+        margin-left: 0;
+    }
+    .form-horizontal .controls input{
+        width: 210px;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    #approved-popover{
+        right: -205px;
+    }
+    .application .popover-inner{
+        width: 320px;
+    }
+}
+.login-buttons {
+    border-bottom: 1px solid #EEE;
+    margin-bottom: 60px;
+}
+
+.little-hero {
+    padding: 25px 20px 10px 20px;
+}
+.little-hero .btn {
+    margin: 30px 0 0 0;
+}
+.usage-count {
+    width: 100%;
+    text-align: center;
+    margin: 8px 0 0 0;
+    font-size: 0.9em;
+    color: #757C82;
+}
+
+/*
+    Social widgets (Facebook Like, Google +1, Twitter Tweet)
+*/
+.social-widgets {
+    height: 62px;
+}
+.reviews .social-widgets {
+    margin-top: 32px;
+}
+.social-widget {
+    float: left;
+    height: 62px;
+    margin-left: 8px;
+    overflow: hidden;
+}
+.facebook-widget {
+    width: 48px;
+}
+.google-widget {
+    height: 60px;
+    padding-top: 2px;
+    width: 50px;
+}
+.twitter-widget {
+    width: 60px;
+}
+.social-widget-placeholder {
+    background: #eeeeee;
+    background: -moz-linear-gradient(#ffffff, #eeeeee);
+    background: -ms-linear-gradient(#ffffff, #eeeeee);
+    background: -o-linear-gradient(#ffffff, #eeeeee);
+    background: -webkit-linear-gradient(#ffffff, #eeeeee);
+    background: linear-gradient(#ffffff, #eeeeee);
+    border: 1px solid;
+    border-radius: 4px;
+    color: #222222;
+    display: block;
+    line-height: 60px;
+    text-align: center;
+    text-decoration: none;
+}
+.social-widget-placeholder:hover {
+    color: #222222;
+    text-decoration: none;
+}
+#facebook-widget-placeholder {
+    border-color: #3b5b99;
+}
+#google-widget-placeholder {
+    border-color: #dd4b39;
+    margin-top: -2px;
+}
+#twitter-widget-placeholder {
+    border-color: #33ccff;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.btn-primary {
+  background-color: #41b9e5;
+  background-image: -moz-linear-gradient(top, #53bfe7, #27afe1);
+  background-image: -ms-linear-gradient(top, #53bfe7, #27afe1);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#53bfe7), to(#27afe1));
+  background-image: -webkit-linear-gradient(top, #53bfe7, #27afe1);
+  background-image: -o-linear-gradient(top, #53bfe7, #27afe1);
+  background-image: linear-gradient(top, #53bfe7, #27afe1);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#53bfe7', endColorstr='#27afe1', GradientType=0);
+  border-color: #27afe1 #27afe1 #177ea4;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #27afe1;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary.disabled,
+.btn-primary[disabled] {
+  background-color: #27afe1;
+  *background-color: #1da0d1;
+}
+.btn-primary:active,
+.btn-primary.active {
+  background-color: #1a8fbb \9;
+}
+.btn-info {
+  background-color: #a6006e;
+  background-image: -moz-linear-gradient(top, #bb007c, #88005a);
+  background-image: -ms-linear-gradient(top, #bb007c, #88005a);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#bb007c), to(#88005a));
+  background-image: -webkit-linear-gradient(top, #bb007c, #88005a);
+  background-image: -o-linear-gradient(top, #bb007c, #88005a);
+  background-image: linear-gradient(top, #bb007c, #88005a);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bb007c', endColorstr='#88005a', GradientType=0);
+  border-color: #88005a #88005a #3b0027;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #88005a;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-info:hover,
+.btn-info:active,
+.btn-info.active,
+.btn-info.disabled,
+.btn-info[disabled] {
+  background-color: #88005a;
+  *background-color: #6e0049;
+}
+.btn-info:active,
+.btn-info.active {
+  background-color: #550038 \9;
+}
+.btn-success {
+  background-color: #7dbd00;
+  background-image: -moz-linear-gradient(top, #8bd200, #699f00);
+  background-image: -ms-linear-gradient(top, #8bd200, #699f00);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#8bd200), to(#699f00));
+  background-image: -webkit-linear-gradient(top, #8bd200, #699f00);
+  background-image: -o-linear-gradient(top, #8bd200, #699f00);
+  background-image: linear-gradient(top, #8bd200, #699f00);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8bd200', endColorstr='#699f00', GradientType=0);
+  border-color: #699f00 #699f00 #365200;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #699f00;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-success:hover,
+.btn-success:active,
+.btn-success.active,
+.btn-success.disabled,
+.btn-success[disabled] {
+  background-color: #699f00;
+  *background-color: #588500;
+}
+.btn-success:active,
+.btn-success.active {
+  background-color: #476c00 \9;
+}
+.btn-warning {
+  background-color: #e67300;
+  background-image: -moz-linear-gradient(top, #fb7d00, #c86300);
+  background-image: -ms-linear-gradient(top, #fb7d00, #c86300);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fb7d00), to(#c86300));
+  background-image: -webkit-linear-gradient(top, #fb7d00, #c86300);
+  background-image: -o-linear-gradient(top, #fb7d00, #c86300);
+  background-image: linear-gradient(top, #fb7d00, #c86300);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb7d00', endColorstr='#c86300', GradientType=0);
+  border-color: #c86300 #c86300 #7b3d00;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #c86300;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-warning:hover,
+.btn-warning:active,
+.btn-warning.active,
+.btn-warning.disabled,
+.btn-warning[disabled] {
+  background-color: #c86300;
+  *background-color: #ae5700;
+}
+.btn-warning:active,
+.btn-warning.active {
+  background-color: #944a00 \9;
+}
+.btn-danger {
+  background-color: #ce2430;
+  background-image: -moz-linear-gradient(top, #de2935, #b71d27);
+  background-image: -ms-linear-gradient(top, #de2935, #b71d27);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#de2935), to(#b71d27));
+  background-image: -webkit-linear-gradient(top, #de2935, #b71d27);
+  background-image: -o-linear-gradient(top, #de2935, #b71d27);
+  background-image: linear-gradient(top, #de2935, #b71d27);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#de2935', endColorstr='#b71d27', GradientType=0);
+  border-color: #b71d27 #b71d27 #751219;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #b71d27;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-danger:hover,
+.btn-danger:active,
+.btn-danger.active,
+.btn-danger.disabled,
+.btn-danger[disabled] {
+  background-color: #b71d27;
+  *background-color: #a11923;
+}
+.btn-danger:active,
+.btn-danger.active {
+  background-color: #8b161e \9;
+}
+.label-important {
+  background-color: #cd202c;
+}
+.label-success {
+  background-color: #7ab800;
+}
+.label-warning {
+  background-color: #c79900;
+}
+.label-info {
+  background-color: #3db7e4;
+}
+.label-inverse {
+  background-color: #a1006b;
+}
