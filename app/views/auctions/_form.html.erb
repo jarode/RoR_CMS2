@@ -11,7 +11,16 @@
       </ul>
     </div>
   <% end %>
-
+  
+  <div class="field">
+    <% for cat in Cat.find(:all) %>  
+        <div>  
+          <%= check_box_tag "auction[cat_ids][]", cat.id, @auction.cats.include?(cat) %>  
+          <%= cat.name %>  
+        </div>  
+    <% end %>  
+  </div>
+  
   <div class="field">
     <%= auction_form.label current_user.id %><br />
 	<%= auction_form.hidden_field(:user_id,  {:value => current_user.id} ) %>

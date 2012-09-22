@@ -11,15 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120919110226) do
+ActiveRecord::Schema.define(:version => 20120922195936) do
 
   create_table "auctions", :force => true do |t|
     t.string   "name"
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.integer  "user_id"
+    t.string   "category_ids"
+  end
+
+  create_table "auctions_cats", :id => false, :force => true do |t|
+    t.integer "auction_id"
+    t.integer "cat_id"
+  end
+
+  create_table "auctions_ccategories", :id => false, :force => true do |t|
+    t.integer "auction_id"
+    t.integer "ccategory_id"
   end
 
   create_table "bits", :force => true do |t|
@@ -32,6 +43,30 @@ ActiveRecord::Schema.define(:version => 20120919110226) do
   end
 
   add_index "bits", ["auction_id"], :name => "index_bits_on_auction_id"
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "cname"
+  end
+
+  create_table "categories_auctions", :id => false, :force => true do |t|
+    t.integer "category_id"
+    t.integer "auction_id"
+  end
+
+  create_table "cats", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "ccategories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
