@@ -24,6 +24,7 @@ class AuctionsController < ApplicationController
   # GET /auctions/new
   # GET /auctions/new.json
   def new
+    #@cats = Cat.new
     @auction = Auction.new
 
     respond_to do |format|

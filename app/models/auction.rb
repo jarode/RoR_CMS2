@@ -1,6 +1,6 @@
 class Auction < ActiveRecord::Base
-  attr_accessible :content, :name, :title, :tags_attributes, :user_id
- 
+  attr_accessible :content, :name, :title, :tags_attributes, :user_id, :cat_ids
+  has_and_belongs_to_many :cats
  
   belongs_to :user
   
