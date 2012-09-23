@@ -4,11 +4,23 @@
   <b>Name:</b>
   <%= @auction.name %>
 </p>
-
+<p>
+  <b>Options:</b>
+  <ul>
+<% for option in @auction.options %>
+      <li><%= h option.name %></li>
+    <% end %>
+	</ul>
+</p>
 <p>
   <b>Category:</b>
+  <ul>
+  <% for cat in @auction.cats %>
+      <li><%= h cat.name %></li>
+    <% end %>
   
-  <%= @auction.cat_ids %>
+  </ul>
+
 </p>
 
 <p>

@@ -20,6 +20,19 @@
         </div>  
     <% end %>  
   </div>
+  <div class="field">
+	  <%= for option in Option.all do %>
+		 <%= check_box_tag "auction[option_ids][]", option.id, @auction.options.include?(option) %>
+		 <%= option.name %>
+	   <% end %>
+  </div>
+  
+<% fields_for "auction[option_ids][]", option do |task_form| %>
+      <p>
+        Task: <%= task_form.text_field :name %>
+      </p>
+    <% end %>
+  
   
   <div class="field">
     <%= auction_form.label current_user.id %><br />
