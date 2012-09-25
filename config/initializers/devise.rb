@@ -206,6 +206,21 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+  
+  require "omniauth-facebook"
+  
+  if RbConfig::CONFIG["host_os"] =~ /mingw|mswin/
+    ca_file = File.expand_path Rails.root.join("config", "cacert.pem")
+
+    ssl_options = {}
+    ssl_options[:ca_path] = '/etc/ssl/certs' if Rails.env.staging?
+    ssl_options[:ca_file] = ca_file
+
+    config.omniauth :facebook, "402716783095944", "7bc2fdbe0a3554e44dab0455d75f600d", # "APP_ID", "APP_SECRET" your got from facebook app registration
+        :client_options => {:ssl => ssl_options}
+else
+    config.omniauth :facebook, "402716783095944", "7bc2fdbe0a3554e44dab0455d75f600d"
+end
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
