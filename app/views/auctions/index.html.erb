@@ -1,3 +1,194 @@
+<ul class="breadcrumb">
+                        
+                            
+                                <li>
+                            
+                                <a href=/>Home</a><span class="divider">/</span>
+                                </li>
+                        
+                            
+                                <li class="active">
+                            
+                                <a href="">Apps</a>
+                                </li>
+                        
+                    </ul>
+
+<div class="reviews page-header">
+        <h1>Futures</h1>
+    </div>
+
+    
+
+
+
+<div id="filter-bar" class="btn-toolbar">
+    <div class="btn-group">
+        <a class="btn btn-success" href="?">Power Search</a>
+    </div>
+    <div class="btn-group">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#sort">
+            Sort<span>: Newest</span>
+            <i class="caret"></i>
+        </a>
+        <ul class="dropdown-menu">
+            
+                
+            
+                
+                    <li>
+                        <a href="http://www.famigo.com/approved-apps/">APProved</a>
+                    </li>
+                
+            
+                
+                    <li>
+                        <a href="http://www.famigo.com/best-apps/">Best</a>
+                    </li>
+                
+            
+                
+                    <li>
+                        <a href="http://www.famigo.com/popular-apps/">Popular</a>
+                    </li>
+                
+            
+        </ul>
+    </div>
+
+    <div class="btn-group">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#price">
+            Price<span>: Free &amp; Paid</span>
+            <i class="caret"></i>
+        </a>
+        <ul class="dropdown-menu">
+   
+                    <li>
+                        <a href="http://www.famigo.com/free-apps/">Free</a>
+                    </li>
+   
+                    <li>
+                        <a href="http://www.famigo.com/paid-apps/">Paid</a>
+                    </li>
+    
+        </ul>
+    </div>
+
+	
+	
+    
+</div>
+
+
+    
+        <div class="row">
+            
+
+            
+<div class="span4">
+    <div class="application well promotion">
+        <a class="application-tile-link" href="3/" title="">
+           <img class="pull-left application-icon" src="http://placehold.it/64x64">
+        </a>
+
+        <h3>
+            
+                <a class="application-tile-link" href="gy" title="">Level 3</a>
+            
+
+        </h3>
+        <!--  <span class="pull-right label label-warning">Promoted</span> -->
+        
+        <p class="developer">Bugbrained</p>
+        <p class="rating">
+            
+                End Date: 25.05.2013
+            
+        </p>
+
+        
+        
+        <a class="btn btn-primary application-tile-link"  href="http://www.famigo.com/app/word-recognition-level-3/" title="Word Recognition Level 3">
+            
+                Show
+            
+        </a>
+        <p class="usage-count">
+            ...
+        </p>
+        
+    </div>
+</div>
+            
+                
+
+
+         
+                
+
+ <% @auctions.each do |auction| %>
+
+<div class="span4">
+    <div class="application well ">
+		
+        <a class="application-tile-link" href="3/" title="">
+		<% if auction.user.image %>
+            <img class="pull-left application-icon" src="<%= auction.user.image %>">
+        <% else %>
+			<img class="pull-left application-icon" src="http://placehold.it/64x64">
+		<% end %>
+		</a>
+		
+		<h3>
+		
+			<a class="application-tile-link" href="zz" title=""><%= auction.title %></a>
+		</h3>
+        
+        <p class="developer"><%= auction.user.name %></p>
+        <p class="rating">
+            
+                End Date: 25.05.2013
+            
+        </p>
+
+        
+        <%= link_to 'Show', auction, :class => "btn btn-primary application-tile-link" %>
+       
+        <p class="usage-count">
+            Brand new!
+			
+        </p>
+        
+    </div>
+
+</div>
+
+ <% end %>             
+                
+
+
+
+
+            
+                
+
+            
+        </div>
+
+        
+            
+
+    <ul class="pager">
+        
+        
+            <li class="next">
+                <a data-page="2" href="http://www.famigo.com/?page=2" rel="next">Next</a>
+            </li>
+        
+    </ul>
+    
+			
+
 <h1>Listing auctions</h1>
 
 <table>

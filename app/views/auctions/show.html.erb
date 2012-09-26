@@ -1,4 +1,78 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+            <img alt="" class="pull-left application-header-icon" src="<%= @auction.user.image %>">
+
+            <span ><h1>User name</h1></span>
+            <small >Status icons(registered, veryficated)</small>
+</div>
+
+        <div class="row">
+            <div class="span4">
+  
+                    <div class="alert alert-info" >
+                        
+                        
+                        <h2 class="alert-heading">Desc</h2>
+						
+						 <ul>
+							<li>Created at: <%= @auction.created_at %></li>
+							<li>Updated at: <%= @auction.updated_at %></li>
+							<li>How many bits: ??</li>
+						 </ul>
+						
+                    </div>
+
+                    <div class="alert alert-success">
+                        <h2 class="alert-heading">Cool</h2>
+                        <b>Category:</b>
+						  <ul>
+						  <% for cat in @auction.cats %>
+							  <li><%= h cat.name %></li>
+							<% end %>
+						  
+						  </ul>
+						  <b>Options:</b>
+						  <ul>
+						    <% for option in @auction.options %>
+							  <li><%= h option.name %></li>
+							<% end %>
+						  </ul>
+                       
+                    </div>
+
+                    <div class="alert alert-error">
+                        <h2 class="alert-heading">Drool</h2>
+                        <p>
+						  <b>Tags:</b>
+						  <%= @auction.tags.map { |t| t.name }.join(", ") %>
+						</p>
+
+                       
+                    </div>
+                
+            </div>
+
+            <div class="span8">
+                
+                   
+
+                <div class="page-header">
+					<h2 >Planned Date: 28.12.2012</h2>
+					<small>Left to end of auction: 2 days, 12 hours, 34 min</small>
+				</div>
+				<div class="page-header">	
+					<h2>Planned Budget: 300</h2>
+				</div>
+				<div class="page-header">   
+					<h2>About Auction</h2>
+                    <p><%= @auction.content %></p>
+                </div>
+
+                
+                   
+			</div>	
+		</div>
+
+<div>            
 
 <p>
   <b>Name:</b>
@@ -89,3 +163,5 @@
 	
 	<% end %>
 <% end %>
+
+</div>

@@ -1,4 +1,5 @@
 class AuctionsController < ApplicationController
+  
   # GET /auctions
   # GET /auctions.json
   def index
@@ -24,8 +25,10 @@ class AuctionsController < ApplicationController
   # GET /auctions/new
   # GET /auctions/new.json
   def new
+    authenticate_user!
     #@cats = Cat.new
     @auction = Auction.new
+
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,7 +46,8 @@ class AuctionsController < ApplicationController
   # POST /auctions.json
   def create
     @auction = Auction.new(params[:auction])
-	authorize! :read, @auction
+	
+	#authorize! :read, @auction
 	
     respond_to do |format|
       if @auction.save
