@@ -1,5 +1,5 @@
 class Auction < ActiveRecord::Base
-  attr_accessible :content, :name, :title, :tags_attributes, :user_id, :cat_ids, :option_ids
+  attr_accessible :content, :name, :title, :tags_attributes, :user_id, :cat_ids, :option_ids, :planned_date, :planned_budget
   has_many :optionprices
   has_many :options, :through => :optionprices
   
@@ -8,7 +8,7 @@ class Auction < ActiveRecord::Base
  
   belongs_to :user
   
-  validates :name,  :presence => true
+  
   validates :title, :presence => true,
                     :length => { :minimum => 5 }
  

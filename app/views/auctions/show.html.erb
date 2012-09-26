@@ -56,18 +56,44 @@
                    
 
                 <div class="page-header">
-					<h2 >Planned Date: 28.12.2012</h2>
+					<h2 >Planned Date: <%= @auction.planned_date %></h2>
 					<small>Left to end of auction: 2 days, 12 hours, 34 min</small>
 				</div>
 				<div class="page-header">	
-					<h2>Planned Budget: 300</h2>
+					<h2>Planned Budget: <%= @auction.planned_budget %></h2>
 				</div>
 				<div class="page-header">   
 					<h2>About Auction</h2>
                     <p><%= @auction.content %></p>
                 </div>
 
-                
+                <div class="page-header">  
+
+					<h2>Bits</h2>
+					<% @auction.bits.each do |bit| %>
+					  <p>
+					   
+						<b>Bitter:</b>
+						<%= bit.bitter %>
+					  </p>
+					 
+					  <p>
+						<b>Description:</b>
+						<%= bit.body %>
+					  </p>
+					  <% if user_signed_in? %>
+						  <% if current_user.has_role? :admin %>
+						  <p>
+							<%= link_to 'Destroy Bit', [bit.auction, bit],
+									   :confirm => 'Are you sure?',
+									   :method => :delete %>
+						  </p>
+						  <% end %>
+					  <% end %>
+					  
+					<% end %>
+					
+                </div>
                    
 			</div>	
 		</div>

@@ -21,29 +21,33 @@
     <% end %>  
   </div>
   <div class="field">
+	 
 	  <%= for option in Option.all do %>
 		 <%= check_box_tag "auction[option_ids][]", option.id, @auction.options.include?(option) %>
 		 <%= option.name %>
 	   <% end %>
   </div>
-  
-
-  
+  <div class="field">
+	 <%= auction_form.label :planned_date %><br />
+	<%= auction_form.date_select :planned_date %>
+	
+	
+  </div>
   
   <div class="field">
-    <%= auction_form.label current_user.id %><br />
 	<%= auction_form.hidden_field(:user_id,  {:value => current_user.id} ) %>
-	
-    <%= auction_form.label :name %><br />
-    <%= auction_form.text_field :name %>
   </div>
   <div class="field">
     <%= auction_form.label :title %><br />
     <%= auction_form.text_field :title %>
   </div>
   <div class="field">
+    <%= auction_form.label :planned_budget %><br />
+    <%= auction_form.text_field :planned_budget %>
+  </div>
+  <div class="field">
     <%= auction_form.label :content %><br />
-    <%= auction_form.text_area :content %>
+    <%= auction_form.text_area :content, :size => "40x10"%>
   </div>
   <h2>Tags</h2>
   <%= render :partial => 'tags/form',
