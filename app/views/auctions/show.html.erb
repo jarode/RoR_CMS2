@@ -38,7 +38,50 @@
 						  </ul>
                        
                     </div>
+					<div class="alert alert-error">
+                        <h2 class="alert-heading">Add a Bit:</h2>
+                        <p>
+						 
+							<% if user_signed_in? %>
+								<%= form_for([@auction, @auction.bits.build]) do |f| %>
+								  <div class="field">
+									
+									<%= f.hidden_field(:user_id,  {:value => current_user.id} ) %>
+									
+									
+								  </div>
+								  <div class="field">
+									  <b>Options:</b>
+										    
+											
+											 
+										    <% for option2 in @auction.options %>
+											  <%= check_box_tag "bit[checked_option][]", option2.id %>
+											  <%= option2.name %>
+											<% end %>
+											
 
+											
+								  </div>
+								  <div class="field">
+									<%= f.label :price %><br />
+									<%= f.text_field :price %>
+								  </div>
+								  <div class="field">
+									<%= f.label :body %><br />
+									<%= f.text_field :body %>
+								  </div>
+								  <div class="actions">
+									<%= f.submit %>
+								  </div>
+								<% end %>
+							<% else %>
+								<%= link_to 'Login', new_user_session_path %>  
+							<% end %>
+						</p>
+
+                       
+                    </div>
                     <div class="alert alert-error">
                         <h2 class="alert-heading">Drool</h2>
                         <p>
@@ -71,16 +114,36 @@
 
 					<h2>Bits</h2>
 					<% @auction.bits.each do |bit| %>
+					  
+					  
+					   
+					   <% for bitter in User.where(:id => bit.user_id) %>
+					   
+						   <% if bitter.image %>
+								<img class="pull-left application-icon" src="<%= bitter.image %>">
+							<% else %>
+								<img class="pull-left application-icon" src="http://placehold.it/64x64">
+							<% end %>
+						<p>	
+							<b>Bitter:</b>
+							<%= bitter.name %>
+					    </p>	 
+						<% end %>
+					  <div class="pull-right">
+						<b>Price:</b>
+						<%= bit.price %>
+					  </div>
 					  <p>
 					   
-						<b>Bitter:</b>
-						<%= bit.bitter %>
+						<b>Options:</b>
+						<%= bit.checked_option %>
 					  </p>
 					 
 					  <p>
 						<b>Description:</b>
 						<%= bit.body %>
 					  </p>
+					  
 					  <% if user_signed_in? %>
 						  <% if current_user.has_role? :admin %>
 						  <p>
@@ -90,7 +153,7 @@
 						  </p>
 						  <% end %>
 					  <% end %>
-					  
+					 <hr> 
 					<% end %>
 					
                 </div>
@@ -100,88 +163,16 @@
 
 <div>            
 
-<p>
-  <b>Name:</b>
-  <%= @auction.name %>
-</p>
-<p>
-  <b>Options:</b>
-  <ul>
-<% for option in @auction.options %>
-      <li><%= h option.name %></li>
-    <% end %>
-	</ul>
-</p>
-<p>
-  <b>Category:</b>
-  <ul>
-  <% for cat in @auction.cats %>
-      <li><%= h cat.name %></li>
-    <% end %>
-  
-  </ul>
-
-</p>
 
 <p>
-  <b>Title:</b>
-  <%= @auction.title %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @auction.content %>
-</p>
-
-<p>
-  <b>Tags:</b>
+  <h2>Tags:</h2>
   <%= @auction.tags.map { |t| t.name }.join(", ") %>
 </p>
 
 
-<h2>Bits</h2>
-<% @auction.bits.each do |bit| %>
-  <p>
-    <b>Bitter:</b>
-    <%= bit.bitter %>
-  </p>
+
  
-  <p>
-    <b>Description:</b>
-    <%= bit.body %>
-  </p>
-  <% if user_signed_in? %>
-	  <% if current_user.has_role? :admin %>
-	  <p>
-		<%= link_to 'Destroy Bit', [bit.auction, bit],
-				   :confirm => 'Are you sure?',
-				   :method => :delete %>
-	  </p>
-	  <% end %>
-  <% end %>
-  
-<% end %>
- 
-<h2>Add a Bit:</h2>
-<% if user_signed_in? %>
-	<%= form_for([@auction, @auction.bits.build]) do |f| %>
-	  <div class="field">
-		
-		<%= f.hidden_field(:user_id,  {:value => current_user.id} ) %>
-		
-		<%= f.hidden_field(:bitter,  {:value => current_user.name} ) %>
-	  </div>
-	  <div class="field">
-		<%= f.label :body %><br />
-		<%= f.text_field :body %>
-	  </div>
-	  <div class="actions">
-		<%= f.submit %>
-	  </div>
-	<% end %>
-<% else %>
-<%= link_to 'Login', new_user_session_path %>  
-<% end %>
+
 <br />
 <% if user_signed_in? %>
 	<% if current_user.has_role? :admin %>

@@ -1,6 +1,10 @@
 class BitsController < ApplicationController
+  #before_filter :remove_rabish, :only => [ :create ]
+
   def create
+	
     @auction = Auction.find(params[:auction_id])
+	#params[:bit][:checked_option] ||= [] 
     @bit = @auction.bits.create(params[:bit])
     redirect_to auction_path(@auction)
   end
@@ -10,4 +14,13 @@ class BitsController < ApplicationController
     @bit.destroy
     redirect_to auction_path(@auction)
   end
+  
+  #protected
+
+  # Intercepts the params hash
+  #def remove_rabish
+  #  params[:bit][:checked_option].delete("-")
+  #end
+
+  
 end

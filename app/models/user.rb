@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   rolify
   has_many :auctions, :dependent => :destroy
-  
+  has_many :bits, :dependent => :destroy
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
