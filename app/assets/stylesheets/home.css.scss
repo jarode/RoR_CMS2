@@ -3,26 +3,24 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /* Site-wide top navigation bar */
-.famigo-navbar {
-    background-image: url('famigo-colors.png');
+.new-navbar {
+    background-image: url('new-colors.png');
     padding-top: 4px;
 }
-.famigo-navbar .navbar-inner {
+.new-navbar .navbar-inner {
     background: #eee;
     filter: none;
     padding: 5px 0;
 }
-.famigo-navbar .brand {
+.new-navbar .brand {
     padding-bottom: 0;
     padding-top: 0;
 }
-.famigo-navbar #famigo-logo {
-    display: block;
-}
-.famigo-navbar #user-button {
+
+.new-navbar #user-button {
     margin-left: 18px;
 }
-.famigo-navbar #user-button .user-profile-picture {
+.new-navbar #user-button .user-profile-picture {
     display: block;
     height: 26px;
     left: 0;
@@ -30,18 +28,18 @@
     top: 0;
     width: 26px;
 }
-.famigo-navbar #user-button .icon-user {
+.new-navbar #user-button .icon-user {
     margin-right: 4px;
 }
-.famigo-navbar #user-button .dropdown-menu {
+.new-navbar #user-button .dropdown-menu {
     left: auto;
     right: 0;
 }
-.famigo-navbar #user-button .dropdown-menu:before {
+.new-navbar #user-button .dropdown-menu:before {
     left: auto;
     right: 9px;
 }
-.famigo-navbar #user-button .dropdown-menu:after {
+.new-navbar #user-button .dropdown-menu:after {
     left: auto;
     right: 10px;
 }
@@ -61,32 +59,32 @@
     left: auto !important;
     right: 24px !important;
 }
-.famigo-navbar .nav > li > a {
+.new-navbar .nav > li > a {
     color: #333;
     text-shadow: none;
 }
-.famigo-navbar .nav > li > a:hover {
+.new-navbar .nav > li > a:hover {
     color: #000;
 }
-.famigo-navbar .nav .dropdown-toggle .caret,
-.famigo-navbar .nav .open.dropdown .caret {
+.new-navbar .nav .dropdown-toggle .caret,
+.new-navbar .nav .open.dropdown .caret {
     border-top-color: #000;
 }
-.famigo-navbar .dropdown.open .dropdown-toggle {
+.new-navbar .dropdown.open .dropdown-toggle {
     color: inherit;
 }
-.famigo-navbar .divider-vertical {
+.new-navbar .divider-vertical {
     background-color: #ddd;
     border-right-color: #ddd;
 }
-.famigo-navbar .navbar-search .search-query {
+.new-navbar .navbar-search .search-query {
     border-color: #ccc;
     color: inherit;
 }
-.famigo-navbar .search-query::-webkit-input-placeholder {
+.new-navbar .search-query::-webkit-input-placeholder {
     color: #aaa;
 }
-.famigo-navbar .search-query:-moz-placeholder {
+.new-navbar .search-query:-moz-placeholder {
     color: #aaa;
 }
 
@@ -435,8 +433,8 @@ dd {
     .carousel .item img {
         max-height: 270px;
     }
-    .famigo-navbar .nav > li > a:hover,
-    .famigo-navbar .dropdown-menu:not([data-no-collapse="true"]) a:hover {
+    .new-navbar .nav > li > a:hover,
+    .new-navbar .dropdown-menu:not([data-no-collapse="true"]) a:hover {
         background-color: #ddd;
     }
     #login-popover-container .popover {
