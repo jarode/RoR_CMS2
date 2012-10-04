@@ -26,6 +26,12 @@
     <div class="btn-group">
         <a class="btn btn-success" href="?">Power Search</a>
     </div>
+	
+  Sort by:
+  <%= sort_link @search, :title %> |
+ 
+  
+
     <div class="btn-group">
         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#sort">
             Sort<span>: Newest</span>
@@ -75,7 +81,12 @@
     </div>
 
 	
-	
+	       <div class="digg_pagination pull-right">
+			<div clas="page_info">
+			  <%= page_entries_info @auctions %>
+			</div>
+			<%= will_paginate @auctions, :container => false %>
+		 </div>
     
 </div>
 
@@ -118,6 +129,7 @@
         </p>
         
     </div>
+	
 </div>
             
                 
@@ -175,19 +187,49 @@
             
         </div>
 
-        
+        <div class="digg_pagination">
+			<div clas="page_info">
+			  <%= page_entries_info @auctions %>
+			</div>
+			<%= will_paginate @auctions, :container => false %>
+		 </div>
             
 
     <ul class="pager">
         
-        
+			
+
             <li class="next">
                 <a data-page="2" href="http://www.famigo.com/?page=2" rel="next">Next</a>
             </li>
         
     </ul>
     
-			
+	
+
+<%= form_for @search do |f| %>
+  <p>
+    <%= f.label :title_contains %>
+    <%= f.text_field :title_contains %>
+  </p>
+  <p>
+    <%= f.label :planned_budget_gte, "Price ranges from" %>
+    <%= f.text_field :planned_budget_gte, :size => 8 %>
+    <%= f.label :planned_budget_lte, "to" %>
+    <%= f.text_field :planned_budget_lte, :size => 8 %>
+  </p>
+  
+  <p class="button"><%= f.submit "Search" %></p>
+<% end %>
+
+<p>
+  Sort by:
+  <%= sort_link @search, :name %> |
+ 
+  
+</p>
+
+		
 
 <h1>Listing auctions</h1>
 

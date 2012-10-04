@@ -1,10 +1,12 @@
 class AuctionsController < ApplicationController
-  
   # GET /auctions
   # GET /auctions.json
   def index
-    @auctions = Auction.all
-
+    #@auctions = Auction.all
+	@search = Auction.search(params[:search])
+    @auctions = @search.all
+	@auctions = @search.paginate(:page => params[:page], :per_page => 8)
+	
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @auctions }

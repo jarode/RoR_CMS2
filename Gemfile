@@ -22,3 +22,8 @@ gem "rolify", ">= 3.2.0"
 gem 'omniauth'
 gem 'oauth2'
 gem 'omniauth-facebook'
+
+
+gem "meta_search"
+gem 'will_paginate', '~> 3.0.0'
+
