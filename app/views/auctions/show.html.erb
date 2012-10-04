@@ -1,3 +1,8 @@
+                         <%= render_crumbs :separator => ' / ',
+								:format => :html_list,
+								:active_li_class => 'active',
+								:ul_class => 'breadcrumb'
+						 %>
 <div class="page-header">
             <img alt="" class="pull-left application-header-icon" src="<%= @auction.user.image %>">
 

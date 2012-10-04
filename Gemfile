@@ -20,6 +20,8 @@ gem 'omniauth-facebook'
 gem 'meta_search'
 gem 'will_paginate', '~> 3.0.0'
 
+gem 'crummy', '1.6.0'
+
 group :production do
   gem 'pg', '0.12.2'
 end

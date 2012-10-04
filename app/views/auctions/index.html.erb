@@ -1,18 +1,12 @@
-<ul class="breadcrumb">
-                        
+
+                         <%= render_crumbs :separator => ' / ',
+								:format => :html_list,
+								:active_li_class => 'active',
+								:ul_class => 'breadcrumb'
+						 %>
+            
                             
-                                <li>
-                            
-                                <a href=/>Home</a><span class="divider">/</span>
-                                </li>
-                        
-                            
-                                <li class="active">
-                            
-                                <a href="">Apps</a>
-                                </li>
-                        
-                    </ul>
+                  
 
 <div class="reviews page-header">
         <h1>Futures</h1>

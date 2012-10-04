@@ -1,4 +1,6 @@
 class AuctionsController < ApplicationController
+  add_crumb("Auctions") { |instance| instance.send :auctions_path }
+
   # GET /auctions
   # GET /auctions.json
   def index
@@ -17,7 +19,8 @@ class AuctionsController < ApplicationController
   # GET /auctions/1.json
   def show
     @auction = Auction.find(params[:id])
-
+	add_crumb @auction.title, ''
+	
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @auction }
