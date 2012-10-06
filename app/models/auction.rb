@@ -1,14 +1,14 @@
 class Auction < ActiveRecord::Base
   attr_accessible :content, :name, :title, :tags_attributes, :user_id, :cat_ids, :option_ids, :planned_date, :planned_budget
+  belongs_to :user
   has_many :optionprices
   has_many :options, :through => :optionprices
   
   
   has_and_belongs_to_many :cats
- 
-  belongs_to :user
-  
   has_many :orders, :dependent => :destroy
+  
+  
   
   validates :title, :presence => true,
                     :length => { :minimum => 5 }

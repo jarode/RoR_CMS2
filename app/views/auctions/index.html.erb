@@ -9,78 +9,63 @@
                   
 
 <div class="reviews page-header">
-        <h1>Futures</h1>
-    </div>
-
-    
-
-
+	<%= form_for @search do |f| %> 
+		<%= f.label :title_contains %>
+		<%= f.text_field :title_contains %>
+	 
+		<%= f.collection_select :cats_id_equals, Cat.all, :id, :name, :prompt => "All categories" %>
+	  
+		<%= f.submit "Search", :class => "btn btn-large btn-huge btn-primary"%>
+		<div class="power_search"></div>
+		<div class="power_search alert alert-success" style="display: none">
+		<%= f.label :planned_budget_gte, "Price ranges from" %>
+		<%= f.text_field :planned_budget_gte, :size => 8 %>
+		<%= f.label :planned_budget_lte, "to" %>
+		<%= f.text_field :planned_budget_lte, :size => 8 %>
+		</div>
+	<% end %>
+</div>  
 
 <div id="filter-bar" class="btn-toolbar">
-    <div class="btn-group">
-        <a class="btn btn-success" href="?">Power Search</a>
-    </div>
-	
-  Sort by:
-  <%= sort_link @search, :title %> |
- 
-  
+    <div class="btn-group toggle">
+        <div class="btn btn-success" href="?">Power Search</div>
 
+    </div>
+
+		<script>
+		$(".toggle").click(function () {
+		$(".power_search").toggle("slow");
+		});
+		</script>
+  <div class="btn-group">
+  
+	<%= sort_link @search, :title, "Sort by: Title", {} , :class => "btn dropdown-toggle" %>
+  </div>
+  
+<!--
     <div class="btn-group">
         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#sort">
             Sort<span>: Newest</span>
             <i class="caret"></i>
         </a>
         <ul class="dropdown-menu">
-            
-                
-            
-                
                     <li>
                         <a href="h">APProved</a>
                     </li>
-                
-            
-                
+     
                     <li>
                         <a href="h">Best</a>
                     </li>
-                
-            
-                
-                    <li>
-                        <a href="h">Popular</a>
-                    </li>
-                
-            
         </ul>
     </div>
+-->
 
-    <div class="btn-group">
-        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#price">
-            Price<span>: Free &amp; Paid</span>
-            <i class="caret"></i>
-        </a>
-        <ul class="dropdown-menu">
-   
-                    <li>
-                        <a href="h">Free</a>
-                    </li>
-   
-                    <li>
-                        <a href="h">Paid</a>
-                    </li>
-    
-        </ul>
-    </div>
-
-	
 	       <div class="digg_pagination pull-right">
 			<div clas="page_info">
 			  <%= page_entries_info @auctions %>
 			</div>
 			<%= will_paginate @auctions, :container => false %>
-		 </div>
+		   </div>
     
 </div>
 
@@ -170,15 +155,7 @@
 </div>
 
  <% end %>             
-                
 
-
-
-
-            
-                
-
-            
         </div>
 
         <div class="digg_pagination">
@@ -199,31 +176,7 @@
         
     </ul>
     
-	
 
-<%= form_for @search do |f| %>
-  <p>
-    <%= f.label :title_contains %>
-    <%= f.text_field :title_contains %>
-  </p>
-  <p>
-    <%= f.label :planned_budget_gte, "Price ranges from" %>
-    <%= f.text_field :planned_budget_gte, :size => 8 %>
-    <%= f.label :planned_budget_lte, "to" %>
-    <%= f.text_field :planned_budget_lte, :size => 8 %>
-  </p>
-  
-  <p class="button"><%= f.submit "Search" %></p>
-<% end %>
-
-<p>
-  Sort by:
-  <%= sort_link @search, :name %> |
- 
-  
-</p>
-
-		
 
 <h1>Listing auctions</h1>
 
