@@ -18,8 +18,13 @@ class AuctionsController < ApplicationController
   # GET /auctions/1
   # GET /auctions/1.json
   def show
+    
     @auction = Auction.find(params[:id])
 	add_crumb @auction.title, ''
+	
+	# check the owner of auction
+	@user = User.find(@auction.user_id)
+	@owner = current_user == @user
 	
     respond_to do |format|
       format.html # show.html.erb
@@ -31,7 +36,6 @@ class AuctionsController < ApplicationController
   # GET /auctions/new.json
   def new
     authenticate_user!
-    #@cats = Cat.new
     @auction = Auction.new
 
 

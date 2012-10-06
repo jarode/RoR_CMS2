@@ -77,7 +77,7 @@
 									<%= f.text_field :body %>
 								  </div>
 								  <div class="actions">
-									<%= f.submit %>
+									<%= f.submit :class => "btn btn-large btn-huge btn-primary"%>
 								  </div>
 								<% end %>
 							<% else %>
@@ -156,6 +156,18 @@
 									   :confirm => 'Are you sure?',
 									   :method => :delete %>
 						  </p>
+						  <% end %>
+						  <% if @owner %>
+							<%= form_for([@auction, @auction.orders.build]) do |f| %>
+								 
+									
+									<%= f.hidden_field(:user_id,  {:value => current_user.id} ) %>
+									<%= f.hidden_field(:bit_id,  {:value => bit.id} ) %>
+								  
+									<%= f.submit "Accept", :class => "btn btn-large btn-huge btn-primary" %>
+								  
+							<% end %>
+							
 						  <% end %>
 					  <% end %>
 					 <hr> 

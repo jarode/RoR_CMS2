@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+	# private data only for owner
+	@owner = current_user == @user || current_user.has_role?(:admin)
+	
   end
-
 end

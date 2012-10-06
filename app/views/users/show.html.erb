@@ -7,9 +7,7 @@
 
         <div class="row">
             <div class="span4">
-                
-
-                
+            
                     <div class="alert alert-info">
                         
                         <h2 class="alert-heading">Desc</h2>
@@ -96,18 +94,7 @@
                         <p>There is a link to Facebook &amp; Gmail from the home screen</p>
 
                         <ul class="features">
-                            
-                                
-                            
-                                
-                            
-                                
-                            
-                                
-                            
-                                
-                            
-                                
+   
                                     <li>
                                         <a href="?">
                                             <img alt="" src="?g">
@@ -152,7 +139,40 @@
                     <h2>About Drawdle</h2>
                     <p>Brand new!</p>
                 </div>
+				 <% if @owner %>		
 
+
+				<div class="page-header">
+                    <h2>Your Auctions</h2>
+                    <ul>
+					
+					<% for auction in @user.auctions %>
+							  <li><%= h auction.name %> - 
+							  Bids: <%= auction.bits.count %> 
+							  <%= link_to 'Show', auction %>
+							  
+							  </li>
+					<% end %>
+					
+					</ul>
+                </div>
+				<div class="page-header">
+                    <h2>Your Bids</h2>
+                    <ul>
+					<% for bit in @user.bits %>
+							  <li><%= h bit.auction.name %> - 
+								Yours Offer: <%= bit.price %>
+								
+							  </li>
+					<% end %>
+					
+					</ul>
+                </div>
+				<div class="page-header">
+                    <h2>Edit Settings</h2>
+                    <p>-</p>
+                </div>
+				 <% end %>
                 
                    
 			</div>	

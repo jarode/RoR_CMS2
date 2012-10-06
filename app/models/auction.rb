@@ -8,6 +8,7 @@ class Auction < ActiveRecord::Base
  
   belongs_to :user
   
+  has_many :orders, :dependent => :destroy
   
   validates :title, :presence => true,
                     :length => { :minimum => 5 }

@@ -1,6 +1,9 @@
 Rails3BootstrapDeviseCancan::Application.routes.draw do
+  get "orders/create"
+
   resources :auctions do
 	resources :bits
+	resources :orders
   end
   
   authenticated :user do
