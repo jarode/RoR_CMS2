@@ -21,12 +21,13 @@
     <% end %>  
   </div>
   <div class="field">
-	 
 	  <%= for option in Option.all do %>
 		 <%= check_box_tag "auction[option_ids][]", option.id, @auction.options.include?(option) %>
 		 <%= option.name %>
 	   <% end %>
   </div>
+  
+  
   <div class="field">
 	 <%= auction_form.label :planned_date %><br />
 	<%= auction_form.date_select :planned_date %>
