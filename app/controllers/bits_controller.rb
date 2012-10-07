@@ -5,7 +5,11 @@ class BitsController < ApplicationController
 	
     @auction = Auction.find(params[:auction_id])
 	#params[:bit][:checked_option] ||= [] 
+	#params[:bit][:checked_option] = coptions 
+	#{'checked_option' => []}.merge(params[:bit] || {})
+	
     @bit = @auction.bits.create(params[:bit])
+
     redirect_to auction_path(@auction)
   end
   def destroy

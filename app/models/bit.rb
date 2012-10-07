@@ -4,4 +4,6 @@ class Bit < ActiveRecord::Base
   belongs_to :auction
   belongs_to :user
   has_many :orders
+  
+  serialize :checked_option
 end
