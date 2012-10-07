@@ -25,7 +25,7 @@ class AuctionsController < ApplicationController
 	# check the owner of auction
 	@user = User.find(@auction.user_id)
 	@owner = current_user == @user
-	
+		
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @auction }

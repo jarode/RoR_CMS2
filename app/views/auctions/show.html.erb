@@ -119,9 +119,7 @@
 
 					<h2>Bits</h2>
 					<% @auction.bits.each do |bit| %>
-					  
-					  
-					   
+	 
 					   <% for bitter in User.where(:id => bit.user_id) %>
 					   
 						   <% if bitter.image %>
@@ -141,7 +139,11 @@
 					  <p>
 					   
 						<b>Options:</b>
-						<%= bit.checked_option %>
+						
+						<% for option in Option.find_all_by_id(bit.checked_option) %>
+							<%= option.name %>	
+						<% end %>
+						
 					  </p>
 					 
 					  <p>
