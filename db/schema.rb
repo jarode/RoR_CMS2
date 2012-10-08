@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121004204802) do
+ActiveRecord::Schema.define(:version => 20121007221932) do
 
   create_table "auctions", :force => true do |t|
     t.string   "name"
@@ -38,11 +38,12 @@ ActiveRecord::Schema.define(:version => 20121004204802) do
   create_table "bits", :force => true do |t|
     t.text     "body"
     t.integer  "auction_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.integer  "user_id"
     t.text     "checked_option"
     t.integer  "price"
+    t.boolean  "accepted",       :default => false
   end
 
   add_index "bits", ["auction_id"], :name => "index_bits_on_auction_id"

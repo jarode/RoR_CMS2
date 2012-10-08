@@ -119,7 +119,7 @@
 
 					<h2>Bits</h2>
 					<% @auction.bits.each do |bit| %>
-	 
+					  <div <% if bit.accepted %>class="alert alert-success"<% else %><% end %> >
 					   <% for bitter in User.where(:id => bit.user_id) %>
 					   
 						   <% if bitter.image %>
@@ -153,26 +153,23 @@
 					  
 					  <% if user_signed_in? %>
 						  <% if current_user.has_role? :admin %>
-						  <p>
+						  
 							<%= link_to 'Destroy Bit', [bit.auction, bit],
 									   :confirm => 'Are you sure?',
-									   :method => :delete %>
-						  </p>
+									   :method => :delete, 
+									   :class => "btn btn-large btn-huge btn-warning"%>
 						  <% end %>
 						  <% if @owner %>
-							<%= form_for([@auction, @auction.orders.build]) do |f| %>
-								 
-									
-									<%= f.hidden_field(:user_id,  {:value => current_user.id} ) %>
-									<%= f.hidden_field(:bit_id,  {:value => bit.id} ) %>
-								  
-									<%= f.submit "Accept", :class => "btn btn-large btn-huge btn-primary" %>
-								  
-							<% end %>
-							
+
+							<%= link_to 'Accept', [bit.auction, bit],
+									   :confirm => 'Are you sure?',
+									   :method => :put,
+									   :class => "btn btn-large btn-huge btn-primary" %>
+
 						  <% end %>
 					  <% end %>
 					 <hr> 
+					 </div>
 					<% end %>
 					
                 </div>
