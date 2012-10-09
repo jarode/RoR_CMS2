@@ -60,7 +60,7 @@
 										    
 											
 											 
-										    <% for option2 in @auction.options %>
+										    <% for option2 in @auction.options.where(" status NOT IN (1)") %>
 											  <%= check_box_tag "bit[checked_option][]", option2.id %>
 											  <%= option2.name %>
 											<% end %>

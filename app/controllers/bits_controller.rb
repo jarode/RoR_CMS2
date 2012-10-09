@@ -31,7 +31,11 @@ class BitsController < ApplicationController
     @bit2.all.each{|r| if r.checked_option.any? { |i| @bit.checked_option.include?(i) } 
 						r.destroy 
 					   end}
-    #@bit2.destroy_all
+
+					   
+	# change status optionprice for TRUE after accepted bit
+	
+	@bit.checked_option.each {|s| @auction.optionprices.where(" option_id = #{s}").update_all(:status => 1)}
   end
   
 

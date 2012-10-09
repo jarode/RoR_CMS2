@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121007221932) do
+ActiveRecord::Schema.define(:version => 20121008215450) do
 
   create_table "auctions", :force => true do |t|
     t.string   "name"
@@ -76,8 +76,9 @@ ActiveRecord::Schema.define(:version => 20121007221932) do
     t.integer  "auction_id"
     t.integer  "option_id"
     t.string   "price"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "status",     :default => false
   end
 
   create_table "options", :force => true do |t|
