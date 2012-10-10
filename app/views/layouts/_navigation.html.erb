@@ -10,14 +10,16 @@
 
                     <div class="pull-right" id="user-button">
                         
+							 
+
                             <div id="login-popover-container" data-original-title="">
                                 <div class="btn-group">
-                                    <a class="btn btn-success" href="h" id="login-link">
-                                        Log In
-                                    </a>
-                                    <a class="btn btn-success" href="h" id="login-link">
-                                        Sign Up
-                                    </a>
+									 <% if user_signed_in? %>
+										<%= link_to 'Wyloguj', destroy_user_session_path, :method=>'delete', :class => "btn btn-success" %>
+									  <% else %>
+										<%= link_to 'Zaloguj', new_user_session_path, :class => "btn btn-success"%>  
+										<%= link_to 'Rejestracja', new_user_registration_path, :class => "btn btn-success" %>
+									  <% end %>
                                 </div>
                             </div>
                         
@@ -25,50 +27,45 @@
 
                     <div class="nav-collapse">
                         <ul class="nav">
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="h">
-                                    Sandbox
+						
+                                <li>
+								<%= link_to "Aukcje", auctions_path %>
+								</li> 
+							  
+							  
+							  <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" >
+                                    Moje konto
                                     <i class="caret"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="h">
-                                            Android
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="h">
-                                            Apple
-                                        </a>
-                                    </li>
+								
+									  <% if user_signed_in? %>
+										<li>
+										<%= link_to 'Wyloguj', destroy_user_session_path, :method=>'delete' %>        
+										</li>
+									  <% else %>
+										<li>
+										<%= link_to 'Zaloguj', new_user_session_path %>  
+										</li>
+									  <% end %>
+									  <% if user_signed_in? %>
+										<li>
+										<%= link_to 'Edytuj Konto', edit_user_registration_path %>
+										</li>
+										<% if current_user.has_role? :admin %>
+										  <li>
+										  <%= link_to 'Admin', users_path %>
+										  </li>
+										<% end %>
+									  <% else %>
+										<li>
+										<%= link_to 'Rejestracja', new_user_registration_path %>
+										</li>
+									  <% end %>
+                                    
                                 </ul>
                             </li>
-                                <li>
-								<%= link_to "Auctions", auctions_path %>
-								</li> 
-							  <% if user_signed_in? %>
-								<li>
-								<%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>        
-								</li>
-							  <% else %>
-								<li>
-								<%= link_to 'Login', new_user_session_path %>  
-								</li>
-							  <% end %>
-							  <% if user_signed_in? %>
-								<li>
-								<%= link_to 'Edit account', edit_user_registration_path %>
-								</li>
-								<% if current_user.has_role? :admin %>
-								  <li>
-								  <%= link_to 'Admin', users_path %>
-								  </li>
-								<% end %>
-							  <% else %>
-								<li>
-								<%= link_to 'Sign up', new_user_registration_path %>
-								</li>
-							  <% end %>
                         </ul>
 
                         <form action="h" class="navbar-search pull-right" method="post">
