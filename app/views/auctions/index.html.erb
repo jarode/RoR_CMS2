@@ -1,4 +1,4 @@
-
+﻿
                          <%= render_crumbs :separator => ' / ',
 								:format => :html_list,
 								:active_li_class => 'active',
@@ -10,17 +10,17 @@
 
 <div class="reviews page-header">
 	<%= form_for @search do |f| %> 
-		<%= f.label :title_contains %>
+		
 		<%= f.text_field :title_contains %>
 	 
-		<%= f.collection_select :cats_id_equals, Cat.all, :id, :name, :prompt => "All categories" %>
+		<%= f.collection_select :cats_id_equals, Cat.all, :id, :name, :prompt => "Wybierz kategorie" %>
 	  
-		<%= f.submit "Search", :class => "btn btn-large btn-huge btn-primary"%>
+		<%= f.submit "Szukaj", :class => "btn btn-large btn-huge btn-primary"%>
 		<div class="power_search"></div>
 		<div class="power_search alert alert-success" style="display: none">
-		<%= f.label :planned_budget_gte, "Price ranges from" %>
+		<%= f.label :planned_budget_gte, "Budżet od" %>
 		<%= f.text_field :planned_budget_gte, :size => 8 %>
-		<%= f.label :planned_budget_lte, "to" %>
+		<%= f.label :planned_budget_lte, "do" %>
 		<%= f.text_field :planned_budget_lte, :size => 8 %>
 		</div>
 	<% end %>
@@ -28,7 +28,7 @@
 
 <div id="filter-bar" class="btn-toolbar">
     <div class="btn-group toggle">
-        <div class="btn btn-success" href="?">Power Search</div>
+        <div class="btn btn-success" href="?">Zawansowane Szukanie</div>
 
     </div>
 
@@ -39,7 +39,7 @@
 		</script>
   <div class="btn-group">
   
-	<%= sort_link @search, :title, "Sort by: Title", {} , :class => "btn dropdown-toggle" %>
+	<%= sort_link @search, :title, "Sortuj: Nazwa", {} , :class => "btn dropdown-toggle" %>
   </div>
   
 <!--

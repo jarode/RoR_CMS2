@@ -9,9 +9,9 @@
         one:   "Displaying 1 %{model}"
         other: "Displaying all %{count} %{model}"
       single_page_html:
-        zero:  "No %{model} found"
-        one:   "Displaying <b>1</b> %{model}"
-        other: "Displaying <b>all&nbsp;%{count}</b> %{model}"
+        zero:  "Brak aukcji"
+        one:   "<b>1</b> aukcja"
+        other: "<b>%{count}</b> aukcji"
 
-      multi_page: "Displaying %{model} %{from} - %{to} of %{count} in total"
-      multi_page_html: "Strony <b>(%{from}&nbsp;do&nbsp;%{to})</b> z <b>%{count}</b>"	
+      multi_page: "%{model} %{from} - %{to} z %{count}"
+      multi_page_html: "<b>(%{from}&nbsp;do&nbsp;%{to})</b> z <b>%{count}</b>"	
