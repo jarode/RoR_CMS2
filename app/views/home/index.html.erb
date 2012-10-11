@@ -37,64 +37,105 @@
                 
             </div>
         </div>
-    
 
-    
-        
-
-    
-    
 		  
 	<style>
-.bs-search {
-
+.bs-search_a {
 	-webkit-box-shadow: 0 2px 4px rgba(0,0,0,.25);
 	-moz-box-shadow: 0 2px 4px rgba(0,0,0,.25);
 	box-shadow: 0 2px 4px rgba(0,0,0,.25);
 	background-color: whitesmoke;
 	background-image: -moz-linear-gradient(center top , white, rgb(230, 230, 230));
 	background-repeat: repeat-x;
-
     position: relative;
-    margin: 15px 0px;
     padding: 39px 19px 14px;
-	#background-color: rgb(245, 245, 245);
     border: 1px solid rgb(221, 221, 221);
     border-radius: 6px 6px 30px 30px;
 }
 
 /* Echo out a label for the wyszukiwarka */
-.bs-search:after {
-  content: "Wyszukiwarka";
-  position: absolute;
-  top: -1px;
-  left: -1px;
-  padding: 3px 7px;
-  font-size: 12px;
-  font-weight: bold;
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  color: #9da0a4;
-  -webkit-border-radius: 4px 0 4px 0;
-     -moz-border-radius: 4px 0 4px 0;
-          border-radius: 4px 0 4px 0;
+.bs-search_a:after {
+	content: "Wyszukiwarka aukcji";
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	padding: 3px 7px;
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #f5f5f5;
+	border: 1px solid #ddd;
+	color: #9da0a4;
+	-webkit-border-radius: 4px 0 4px 0;
+	-moz-border-radius: 4px 0 4px 0;
+	border-radius: 4px 0 4px 0;
+	
+}
+.bs-search_b {
+	-webkit-box-shadow: 0 2px 4px rgba(0,0,0,.25);
+	-moz-box-shadow: 0 2px 4px rgba(0,0,0,.25);
+	box-shadow: 0 2px 4px rgba(0,0,0,.25);
+	background-color: whitesmoke;
+	background-image: -moz-linear-gradient(center top , white, rgb(230, 230, 230));
+	background-repeat: repeat-x;
+    position: relative;
+    padding: 39px 19px 14px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 6px 6px 30px 30px;
 }
 
+/* Echo out a label for the wyszukiwarka */
+.bs-search_b:after {
+	content: "Wyszukiwarka firm";
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	padding: 3px 7px;
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #f5f5f5;
+	border: 1px solid #ddd;
+	color: #9da0a4;
+	-webkit-border-radius: 4px 0 4px 0;
+	-moz-border-radius: 4px 0 4px 0;
+	border-radius: 4px 0 4px 0;
+}
 
 	</style>
 	
-<div class="bs-search">
-		<center>
-          <form class="form-search input-append" >
-				<input type="text" class="input-xxlarge search-query radiuss" style="height: 30px">
-				<select class="span3 radiuss" style="height: 40px">
-					<option>Kategory 1</option>
-				</select>
-				<button type="submit" class="btn btn-large btn-success">Szukaj</button><button class="btn btn-large" type="button">Opcje</button>
-		  </form> 
-		</center>
-</div>
+	<ul class="nav nav-tabs" style="margin-bottom: 0px;">
+		<li><a href="#aukcje" data-toggle="tab" class="btn btn-large btn-info">Aukcje</a></li>
+		<li><a href="#firmy" data-toggle="tab" class="btn btn-large btn-warning">Firmy/Wykonawcy</a></li>
+    </ul>
 
+
+<div class="tab-content">
+	<div class="tab-pane active" id="aukcje">
+		<div class="bs-search_a">
+				<center>
+				  <form class="form-search input-append" >
+						<input type="text" class="input-xxlarge" style="height: 30px">
+						<select class="span3" style="height: 40px">
+							<option>Kategory 1</option>
+						</select>
+						<button type="submit" class="btn btn-large btn-success">Szukaj</button><button class="btn btn-large" type="button">Opcje</button>
+				  </form> 
+				</center>
+		</div>
+	</div>
+	<div class="tab-pane" id="firmy">
+		<div class="bs-search_b">
+				<center>
+				  <form class="form-search input-append" >
+						<input type="text" class="input-xxlarge" style="height: 30px">
+						<select class="span3" style="height: 40px">
+							<option>Kategory 1</option>
+						</select>
+						<button type="submit" class="btn btn-large btn-success">Szukaj</button><button class="btn btn-large" type="button">Opcje</button>
+				  </form> 
+				</center>
+		</div>
+	</div>
+</div>
 
 <div id="filter-bar" class="btn-toolbar">
     <div class="btn-group">
